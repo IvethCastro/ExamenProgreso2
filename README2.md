@@ -107,9 +107,13 @@ Después de registrar, editar o dar me gusta, actualizar las vistas afectadas si
 4. Entregar enlace al repositorio, código integrado, capturas de las tres pestañas y evidencia de los casos de comprobación.
 5. Completar la tabla de aportes. Cualquier integrante debe poder ejecutar el programa y explicar la colaboración del equipo.
 
-| Iveth Castro | IvethCastro | RE, R4, R5, interfaz |
-| Fareed Guzman | fareeed-guzman | R1 y R2 |
-| Zaskia Sunta | Zyvoxw | R6, interfaz |
+## 👥 Integrantes del equipo
+
+| Integrante | Usuario de GitHub | Mensaje de commit |
+|:---|:---|:---|
+| Iveth Castro | [@IvethCastro](https://github.com/IvethCastro) | R3, R4, R5 e interfaz |
+| Fareed Guzman | [@fareed-guzman](https://github.com/fareed-guzman) | R1 y R2 |
+| Zaskia Sunta | [@Zyvoxw](https://github.com/Zyvoxw) | R6 e interfaz |
 
 Verificar que GitHub muestre correctamente la autoría. Si utilizan Git local, configurar un correo asociado a la cuenta correspondiente. No compartir cuentas.
 
