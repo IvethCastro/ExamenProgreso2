@@ -1,127 +1,258 @@
-import java.time.Year;
 import java.util.ArrayList;
 
-public class GestorPeliculas {
-    public static final String[] GENEROS = {"Drama", "Aventura", "Comedia", "Animación", "Documental"};
-    public static final int ANIO_MINIMO = 1930;
+public class CatalogoPeliculas {
+    public static final String[] generos = {"Drama", "Aventura", "Comedia", "Animación", "Documental"};
+    public static final int aniomin = 1930;
+    private ArrayList<Pelicula> peliculas = new ArrayList<>();
 
-    private final ArrayList<Pelicula> peliculas = new ArrayList<>();
-    private boolean cargaRealizada = false;
-
-    public void precargarPeliculas() {
-        if (cargaRealizada) {
-            return;
-        }
-        cargaRealizada = true;
-        peliculas.add(new Pelicula(2007, "Toy Story", "John Lasseter", "Animación", 1995, 12));
-        peliculas.add(new Pelicula(2013, "El Rey León", "Roger Allers", "Animación", 1994, 9));
-        peliculas.add(new Pelicula(2002, "Parásitos", "Bong Joon-ho", "Drama", 2019, 15));
-        peliculas.add(new Pelicula(2019, "Interestelar", "Christopher Nolan", "Aventura", 2014, 11));
-        peliculas.add(new Pelicula(2005, "El origen", "Christopher Nolan", "Aventura", 2010, 8));
-        peliculas.add(new Pelicula(2011, "Coco", "Lee Unkrich", "Animación", 2017, 9));
-        peliculas.add(new Pelicula(2016, "La vida es bella", "Roberto Benigni", "Comedia", 1997, 7));
-        peliculas.add(new Pelicula(2001, "El Padrino", "Francis Ford Coppola", "Drama", 1972, 14));
-        peliculas.add(new Pelicula(2018, "Tiempos modernos", "Charles Chaplin", "Comedia", 1936, 5));
-        peliculas.add(new Pelicula(2004, "Bowling for Columbine", "Michael Moore", "Documental", 2002, 4));
-        peliculas.add(new Pelicula(2015, "La marcha de los pingüinos", "Luc Jacquet", "Documental", 2005, 6));
-        peliculas.add(new Pelicula(2008, "En busca del arca perdida", "Steven Spielberg", "Aventura", 1981, 10));
-        peliculas.add(new Pelicula(2012, "Jurassic Park", "Steven Spielberg", "Aventura", 1993, 10));
-        peliculas.add(new Pelicula(2003, "Cuando Harry conoció a Sally", "Rob Reiner", "Comedia", 1989, 3));
-        peliculas.add(new Pelicula(2020, "El viaje de Chihiro", "Hayao Miyazaki", "Animación", 2001, 13));
-        peliculas.add(new Pelicula(2006, "Shrek", "Andrew Adamson", "Animación", 2001, 2));
-        peliculas.add(new Pelicula(2010, "Cadena perpetua", "Frank Darabont", "Drama", 1994, 12));
-        peliculas.add(new Pelicula(2017, "Ciudadano Kane", "Orson Welles", "Drama", 1941, 1));
-        peliculas.add(new Pelicula(2014, "El gran dictador", "Charles Chaplin", "Comedia", 1940, 0));
-        peliculas.add(new Pelicula(2009, "Apollo 11", "Todd Douglas Miller", "Documental", 2019, 3));
-        BusquedaOrdenamiento.ordenarPorNumeroDescendente(peliculas);
+    public CatalogoPeliculas() {
+        cargarPeliculasIniciales();
     }
 
-    public ArrayList<Pelicula> getPeliculas() {
-        return peliculas;
+    private void cargarPeliculasIniciales() {
+
+        peliculas.add(new Pelicula(1001, "El Viaje de Chihiro", "Hayao Miyazaki", "Animación", 2001, 5));
+        peliculas.add(new Pelicula(1002, "Toy Story", "John Lasseter", "Animación", 1995, 3));
+        peliculas.add(new Pelicula(1003, "Parásitos", "Bong Joon-ho", "Drama", 2019, 7));
+        peliculas.add(new Pelicula(1004, "El Padrino", "Francis Ford Coppola", "Drama", 1972, 9));
+        peliculas.add(new Pelicula(1005, "Indiana Jones", "Steven Spielberg", "Aventura", 1981, 4));
+        peliculas.add(new Pelicula(1006, "Jurassic Park", "Steven Spielberg", "Aventura", 1993, 6));
+        peliculas.add(new Pelicula(1007, "Mi Vecino Totoro", "Hayao Miyazaki", "Animación", 1988, 5));
+        peliculas.add(new Pelicula(1008, "La Vida es Bella", "Roberto Benigni", "Drama", 1997, 2));
+        peliculas.add(new Pelicula(1009, "Bowling for Columbine", "Michael Moore", "Documental", 2002, 1));
+        peliculas.add(new Pelicula(1010, "Cinema Paradiso", "Giuseppe Tornatore", "Drama", 1988, 8));
+        peliculas.add(new Pelicula(1011, "Una Noche en el Museo", "Shawn Levy", "Comedia", 2006, 0));
+        peliculas.add(new Pelicula(1012, "Dos Tontos Muy Tontos", "Peter Farrelly", "Comedia", 1994, 2));
+        peliculas.add(new Pelicula(1013, "Free Solo", "Jimmy Chin", "Documental", 2018, 6));
+        peliculas.add(new Pelicula(1014, "Coco", "Lee Unkrich", "Animación", 2017, 9));
+        peliculas.add(new Pelicula(1015, "Mad Max: Furia en el Camino", "George Miller", "Aventura", 2015, 3));
+        peliculas.add(new Pelicula(1016, "Super Size Me", "Morgan Spurlock", "Documental", 2004, 0));
+        peliculas.add(new Pelicula(1017, "Ratatouille", "Brad Bird", "Animación", 2007, 5));
+        peliculas.add(new Pelicula(1018, "El Gran Hotel Budapest", "Wes Anderson", "Comedia", 2014, 4));
+        peliculas.add(new Pelicula(1019, "Roma", "Alfonso Cuarón", "Drama", 2018, 7));
+        peliculas.add(new Pelicula(1020, "Mi Pobre Angelito", "Chris Columbus", "Comedia", 1990, 1));
+
+        ordenarPorNumeroDescendente();
     }
 
     public int cantidad() {
         return peliculas.size();
     }
 
-    public void registrar(String codigoTxt, String titulo, String director, String genero, String anioTxt) {
-        int numero = validarNumero(codigoTxt);
-        String tituloValido = validarTexto(titulo, "El título");
-        String directorValido = validarTexto(director, "El director");
-        String generoValido = validarGenero(genero);
-        int anio = validarAnio(anioTxt);
-        if (existeNumero(numero)) {
-            throw new IllegalArgumentException("Ya existe una película con el código " + numero + ".");
+    public ArrayList<Pelicula> listar() {
+
+        ArrayList<Pelicula> copia = new ArrayList<>();
+
+        for (int i = 0; i < peliculas.size(); i++) {
+            copia.add(peliculas.get(i));
         }
-        insertarOrdenado(new Pelicula(numero, tituloValido, directorValido, generoValido, anio));
+
+        return copia;
     }
 
-    private boolean existeNumero(int numero) {
-        for (Pelicula p : peliculas) {
-            if (p.getNumeroID() == numero) {
-                return true;
+    public int anioActual() {
+        return 2026;
+    }
+
+    public void ordenarPorNumeroDescendente() {
+        for (int i = 0; i < peliculas.size() - 1; i++) {
+
+            for (int j = 0; j < peliculas.size() - 1 - i; j++) {
+
+                if (peliculas.get(j).getNumeroID() <
+                        peliculas.get(j + 1).getNumeroID()) {
+
+                    Pelicula aux = peliculas.get(j);
+
+                    peliculas.set(j, peliculas.get(j + 1));
+
+                    peliculas.set(j + 1, aux);
+                }
             }
         }
-        return false;
     }
 
-    private void insertarOrdenado(Pelicula nueva) {
-        int posicion = 0;
-        while (posicion < peliculas.size() && peliculas.get(posicion).getNumeroID() > nueva.getNumeroID()) {
-            posicion++;
-        }
-        peliculas.add(posicion, nueva);
-    }
+    public int busquedaBinaria(int numero) {
 
-    public static int validarNumero(String texto) {
-        if (texto == null || texto.trim().isEmpty()) {
-            throw new IllegalArgumentException("El código es obligatorio.");
-        }
-        int numero;
-        try {
-            numero = Integer.parseInt(texto.trim());
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("El código debe ser un número entero.");
-        }
         if (numero <= 0) {
-            throw new IllegalArgumentException("El código debe ser positivo.");
+            throw new IllegalArgumentException("El codigo debe ser positivo.");
         }
-        return numero;
-    }
 
-    public static String validarTexto(String texto, String campo) {
-        if (texto == null || texto.trim().isEmpty()) {
-            throw new IllegalArgumentException(campo + " es obligatorio.");
-        }
-        return texto.trim();
-    }
+        int inicio = 0;
+        int fin = peliculas.size() - 1;
 
-    public static String validarGenero(String genero) {
-        if (genero == null) {
-            throw new IllegalArgumentException("Seleccione un género.");
-        }
-        for (String g : GENEROS) {
-            if (g.equals(genero)) {
-                return g;
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+            int actual = peliculas.get(medio).getNumeroID();
+
+            if (actual == numero) {
+                return medio;
+            }
+
+            if (actual > numero) {
+                inicio = medio + 1;
+            } else {
+                fin = medio - 1;
             }
         }
-        throw new IllegalArgumentException("El género no es válido.");
+        return -1;
     }
 
-    public static int validarAnio(String texto) {
-        int actual = Year.now().getValue();
-        if (texto == null || texto.trim().isEmpty()) {
-            throw new IllegalArgumentException("El año es obligatorio.");
+    public Pelicula obtenerPorNumero(int numero) {
+        int indice = busquedaBinaria(numero);
+        if (indice == -1) {
+            return null;
         }
-        int anio;
+
+        return peliculas.get(indice);
+    }
+
+    public int buscarIndicePorTexto(String codigoTxt) {
+        int codigo;
+
         try {
-            anio = Integer.parseInt(texto.trim());
+            codigo = Integer.parseInt(codigoTxt);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("El año debe ser un número entero.");
+            throw new IllegalArgumentException("El codigo debe ser un numero entero.");
         }
-        if (anio < ANIO_MINIMO || anio > actual) {
-            throw new IllegalArgumentException("El año debe estar entre " + ANIO_MINIMO + " y " + actual + ".");
+        return busquedaBinaria(codigo);
+    }
+
+    public void registrar(String codigoTxt, String titulo, String director, String genero, String anioTxt) {
+        int codigo;
+        int anio;
+
+        try {
+            codigo = Integer.parseInt(codigoTxt);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("El codigo debe ser un numero entero.");
         }
-        return anio;
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("El codigo debe ser positivo.");
+        }
+
+        try {
+            anio = Integer.parseInt(anioTxt);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("El año debe ser un numero entero.");
+        }
+
+        validarDatos(titulo, director, genero, anio);
+
+        if (busquedaBinaria(codigo) != -1) {
+            throw new IllegalArgumentException("El codigo ya existe.");
+        }
+
+        Pelicula nueva = new Pelicula(
+                codigo, titulo.trim(), director.trim(), genero, anio
+        );
+
+        peliculas.add(nueva);
+
+        ordenarPorNumeroDescendente();
+    }
+    public void editar(int numero, String titulo, String director, String genero, String anioTxt) {
+        int indice = busquedaBinaria(numero);
+
+        if (indice == -1) {
+            throw new IllegalArgumentException("La pelicula no existe.");
+        }
+
+        int anio;
+
+        try {
+            anio = Integer.parseInt(anioTxt);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("El año debe ser un numero entero.");
+        }
+        validarDatos(titulo, director, genero, anio);
+        Pelicula p = peliculas.get(indice);
+        p.setTitulo(titulo.trim());
+        p.setDirector(director.trim());
+        p.setGenero(genero);
+        p.setAnio(anio);
+    }
+    public void eliminar(int numero) {
+        int indice = busquedaBinaria(numero);
+
+        if (indice == -1) {
+            throw new IllegalArgumentException("La pelicula no existe.");
+        }
+
+        peliculas.remove(indice);
+    }
+    public int darMeGusta(int numero) {
+        Pelicula p = obtenerPorNumero(numero);
+
+        if (p == null) {
+            throw new IllegalArgumentException("No hay una pelicula seleccionada.");
+        }
+
+        p.incrementarMeGusta();
+
+        return p.getMeGusta();
+    }
+    public ArrayList<Pelicula> buscarPorTexto(String consulta) {
+
+        if (consulta == null || consulta.trim().isEmpty()) {
+            throw new IllegalArgumentException("Escriba un texto para buscar.");
+        }
+
+        ArrayList<Pelicula> resultados = new ArrayList<>();
+
+        for (int i = 0; i < peliculas.size(); i++) {
+
+            Pelicula p = peliculas.get(i);
+
+            if (p.getTitulo().contains(consulta) ||
+                    p.getDirector().contains(consulta)) {
+                resultados.add(p);
+            }
+        }
+
+        return resultados;
+    }
+    public ArrayList<Pelicula> ranking() {
+        ArrayList<Pelicula> copia = listar();
+
+        for (int i = 0; i < copia.size() - 1; i++) {
+
+            for (int j = 0; j < copia.size() - 1 - i; j++) {
+
+                if (copia.get(j).getMeGusta() < copia.get(j + 1).getMeGusta()) {
+
+                    Pelicula aux = copia.get(j);
+                    copia.set(j, copia.get(j + 1));
+                    copia.set(j + 1, aux);
+                }
+            }
+        }
+        return copia;
+    }
+    private void validarDatos(String titulo, String director, String genero, int anio) {
+
+        if (titulo == null || titulo.trim().isEmpty()) {
+            throw new IllegalArgumentException("El titulo es obligatorio.");
+        }
+        if (director == null || director.trim().isEmpty()) {
+            throw new IllegalArgumentException("El director es obligatorio.");
+        }
+        if (genero == null || genero.trim().isEmpty()) {
+            throw new IllegalArgumentException("Seleccione un genero.");
+        }
+        boolean generoValido = false;
+        for (int i = 0; i < generos.length; i++) {
+            if (generos[i].equals(genero)) {
+                generoValido = true;
+            }
+        }
+        if (!generoValido) {
+            throw new IllegalArgumentException("Seleccione un genero valido.");
+        }
+        if (anio < aniomin || anio > anioActual()) {
+            throw new IllegalArgumentException(
+                    "El año debe estar entre 1930 y " + anioActual()
+            );
+        }
     }
 }
