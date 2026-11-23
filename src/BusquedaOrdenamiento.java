@@ -13,4 +13,33 @@ public class BusquedaOrdenamiento {
             }
         }
     }
+
+    public static ArrayList<Pelicula> buscarTexto(ArrayList<Pelicula> lista, String texto) {
+        ArrayList<Pelicula> resultados = new ArrayList<>();
+        for (Pelicula p : lista) {
+            if (p.getTitulo().contains(texto) || p.getDirector().contains(texto)) {
+                resultados.add(p);
+            }
+        }
+        return resultados;
+    }
+
+    public static int busquedaBinaria(ArrayList<Pelicula> lista, int numero) {
+        int inicio = 0;
+        int fin = lista.size() - 1;
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+            int actual = lista.get(medio).getNumeroID();
+            if (actual == numero) {
+                return medio;
+            }
+            if (actual < numero) {
+                fin = medio - 1;
+            } else {
+                inicio = medio + 1;
+            }
+        }
+        return -1;
+    }
+
 }
