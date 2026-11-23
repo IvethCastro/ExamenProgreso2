@@ -47,6 +47,7 @@ public class Ventana {
         lstPeliculas.setModel(modeloPeliculas);
         lstRanking.setModel(modeloRanking);
 
+        lblTotalPeliculas.setLayout(new java.awt.FlowLayout());
         lblTotalPeliculas.add(lblCantidad);
 
         if (cmbGenero.getItemCount() == 0) {
@@ -390,3 +391,4 @@ public class Ventana {
         frame.setVisible(true);
     }
 }
+
