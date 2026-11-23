@@ -27,6 +27,9 @@ public class Ventana {
     private JComboBox cmbGeneroEdit;
     private JTextField txtAnioEdit;
     private JTextField txtLikes;
+    private JList lstRanking;
+    private JScrollPane spRanking;
+    private JButton btnActualizarRanking;
 
     public Ventana() {
         btnRegistrar.addActionListener(new ActionListener() {
